@@ -20,4 +20,18 @@ async function deleteUser(name,password){
     return;
 }
 
+async function fetchUser(name,password){
+    const identity = {
+        userName:name,
+        password:password
+    }
+    const fetchedUser = await user.findOne(identity);
+    return fetchedUser;
+}
+
+async function fetchAll(){
+    const allUser = await user.find();
+    return allUser;
+}
+
 
