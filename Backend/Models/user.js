@@ -9,5 +9,5 @@ const userSchema = new Schema({
     blogs:Array
 })
 
-const user = monggoose.Model('user',userSchema);
+const user = monggoose.model('user',userSchema);
 export default user;
