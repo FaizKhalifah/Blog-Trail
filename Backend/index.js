@@ -10,6 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.static(join(__dirname, '../FrontEnd')));
+app.use(express.static(join(__dirname, '../FrontEnd/Home')));
 
 app.use('/', getRoute);
 app.use('/dashboard',getRoute);
