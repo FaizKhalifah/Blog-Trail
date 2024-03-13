@@ -106,10 +106,7 @@ main div{
 }
 
 #section2 .left{
-    text-align: left;
     width: 50%;
-    color: white;
-    font-size: 1.5rem;
 }
 
 #section2 .right{
@@ -120,4 +117,81 @@ main div{
     padding: 2.5rem;
     margin: 0rem 3rem;
 }
+
+#section3{
+    background-color: #264653;
+    width: 90%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: baseline;
+    align-items: center;
+    gap: 10rem;
+}
+
+#section3 .left{
+    text-align: left;
+    width: 40%;
+    color: white;
+    font-size: 2.5rem;
+    padding: 2.5rem;
+    margin: 0rem 3rem;
+}
+
+#section3 .right{
+    width: 50%;
+}
+
+#section4{
+    background-color: #9A8F97;
+    width: 90%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: baseline;
+    align-items: center;
+    gap: 10rem;
+}
+
+#section4 .left{
+    width: 50%;
+}
+
+#section4 .right{
+    text-align: left;
+    width: 40%;
+    color: white;
+    font-size: 2.5rem;
+    padding: 2.5rem;
+    margin: 0rem 3rem;
+}
+
+#section5 {
+    background-color: #5A9367;
+    width: 90%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: baseline;
+    align-items: center;
+    gap: 10rem;
+}
+
+#section5 .left{
+    font-size: 2.5rem;
+    color: white;
+    text-align: left;
+}
+
+#section5 a{
+    color: #264653;
+    text-decoration: none;
+    background-color: #FFC86A;
+    border-radius: 1.5rem;
+    padding: 0.3rem 2rem;
+    transition: 0.3s;
+}
+
+#section5 a:hover{
+    background-color: #264653;
+    color: #FFC86A;
+}
+
 
