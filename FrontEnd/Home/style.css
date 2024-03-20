@@ -194,4 +194,22 @@ main div{
     color: #FFC86A;
 }
 
+footer{
+    background-color: black;
+    text-align: left;
+    color: white;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+footer p{
+    margin: 1rem;
+}
+
+footer ul{
+    margin: 1rem;
+    color: gray;
+    list-style-type: none;
+}
+
 
