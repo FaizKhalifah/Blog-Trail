@@ -11,6 +11,10 @@ router.get('/LogIn', (req, res) => {
   res.sendFile(join(process.cwd(),'..', 'FrontEnd', 'Login', 'index.html'));
 });
 
+router.get('/SignIn', (req, res) => {
+  res.sendFile(join(process.cwd(),'..', 'FrontEnd', 'SignIn', 'index.html'));
+});
+
 router.get('/dashboard', (req, res) => {
   res.sendFile(join(process.cwd(),'..', 'FrontEnd', 'Dashboard', 'index.html'));
 });
