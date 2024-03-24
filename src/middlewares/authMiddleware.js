@@ -1,4 +1,4 @@
-import { verifyToken } from '../utils/jwtUtils.js';
+import verifyToken from '../utils/jwtUtils.js';
 
 async function authenticateToken(req,res,next){
     const token = req.headers['authorization'];
@@ -14,6 +14,4 @@ async function authenticateToken(req,res,next){
     }
 };
 
-export default{
-    authenticateToken
-} 
+export default authenticateToken;
