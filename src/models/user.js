@@ -1,6 +1,6 @@
-import monggoose from "mongoose";
+import mongoose from "mongoose";
 import { Schema } from "mongoose";
-monggoose.connect('mongodb://localhost:27017/BlogTrail');
+mongoose.connect('mongodb://localhost:27017/BlogTrail');
 
 const userSchema = new Schema({
     userName:String,

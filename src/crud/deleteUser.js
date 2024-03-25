@@ -7,3 +7,5 @@ async function deleteUser(username,password){
     await user.deleteOne(identity);
     return;
 }
+
+export default deleteUser;

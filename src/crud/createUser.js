@@ -9,3 +9,5 @@ async function  addUser(username,password,interest){
     })
     await newUser.save();
 }
+
+export default addUser;
