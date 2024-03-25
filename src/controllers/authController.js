@@ -4,18 +4,18 @@ import generateToken from '../utils/jwtUtils.js';
 
 
 
-async function loginController(req,res){
+export const loginController = async (req, res) =>{
     const {username,password}=req.body;
     try{
         const token = await loginUser(username,password);
         const accessToken = await generateToken({ username });
         res.json({ token: accessToken });
     }catch(err){
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: err.message });
     }
 }
 
-async function registerController(req,res){
+export const registerController = async (req, res) =>{
     const { username, password } = req.body;
     try {
         const newUser = await registerUser(username, password);
@@ -25,7 +25,4 @@ async function registerController(req,res){
     }
 }
 
-export default{
-    loginController,registerController
-}
 
