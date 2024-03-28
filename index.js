@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.set('view engine', 'ejs');
 const connection ='mongodb://localhost:27017/BlogTrail';
-mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
+mongoose.connect(connection)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
 

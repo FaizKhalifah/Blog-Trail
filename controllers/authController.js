@@ -1,5 +1,8 @@
+import User from "../models/user.js";
+
+
 async function signup_get(req, res){
-    res.render('signup');
+    res.render('register');
   }
   
   async function login_get (req, res) {
@@ -7,11 +10,21 @@ async function signup_get(req, res){
   }
   
   async function signup_post (req, res) {
-    res.send('new signup');
+    const { username, password,interest,blogs } = req.body;
+
+    try {
+      const user = await User.create({  username, password,interest,blogs });
+      res.status(201).json(user);
+    }
+    catch(err) {
+      console.log(err);
+    }
   }
   
 async function login_post (req, res)  {
-    res.send('user login');
+    const { username, password,interest,blogs } = req.body;
+    console.log(username, password,interest,blogs );
+    res.send("user login");
 }
 
 export default {
