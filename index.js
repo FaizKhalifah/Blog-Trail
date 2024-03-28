@@ -9,8 +9,10 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => res.sendFile('./public/index.html'));
+app.get('/register')
 
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+app.use(router);
