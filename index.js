@@ -1,18 +1,14 @@
 import express from 'express';
-import  authenticateToken  from './src/middlewares/authMiddleware.js';
-import authRouter from './src/routes/authRoute.js';
-import getRouter from './src/routes/getRoute.js';
+import router from './src/routes/authRoutes.js';
 
 const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(express.static('public'));
 
 // Routes
-app.use('/', getRouter);
-app.use('/dashboard', getRouter);
-app.use('/login',getRouter);
-app.use('/register',getRouter);
+app.get('/', (req, res) => res.sendFile('./public/index.html'));
 
 const port = 3000;
 app.listen(port, () => {

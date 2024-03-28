@@ -1,10 +1,19 @@
-import mongoose from "mongoose";
+import mongoose, { trusted } from "mongoose";
 import { Schema } from "mongoose";
 mongoose.connect('mongodb://localhost:27017/BlogTrail');
 
 const userSchema = new Schema({
-    userName:String,
-    password:String,
+    userName:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true,
+        unique:true,
+        minlength:8
+    },
     interest:Array,
     blogs:Array
 })
