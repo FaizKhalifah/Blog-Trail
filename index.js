@@ -1,18 +1,14 @@
-import express from 'express';
-import router from './src/routes/authRoutes.js';
+import express from "express";
+import mongoose  from "mongoose";
+import router from "./routes/authRoute.js";
 
 const app = express();
-
-// Middleware
 app.use(express.json());
-app.use(express.static('public'));
+app.set('view engine', 'ejs');
+const connection ='mongodb://localhost:27017/BlogTrail';
+mongoose.connect(connection)
+  .then((result) => app.listen(3000))
+  .catch((err) => console.log(err));
 
-// Routes
-app.get('/', (req, res) => res.sendFile('./public/index.html'));
-app.get('/register')
-
-const port = 3000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
-app.use(router);
+  app.get('/', (req, res) => res.render('index'));
+  app.use(router);
