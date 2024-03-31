@@ -20,14 +20,4 @@ mongoose.connect(connection)
   res.sendFile('./public/index.html',{root:currentDirectory});
  })
   
-  app.get('/set-cookies', (req, res) => {
-    res.cookie('newUser', false);
-    res.cookie('isEmployee', true, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true });
-    res.send('you got the cookies!');
-  });
-  app.get('/read-cookies', (req, res) => {
-    const cookies = req.cookies;
-    console.log(cookies.newUser);
-    res.json(cookies.newUser);
-  });
   app.use(router);
