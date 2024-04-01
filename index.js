@@ -16,8 +16,12 @@ mongoose.connect(connection)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
 
- app.get('/',async(req,res)=>{
-  res.sendFile('./public/index.html',{root:currentDirectory});
+ app.get('/',(req,res)=>{
+    res.sendFile('./public/index.html',{root:currentDirectory});
+ })
+
+ app.get('/dashboard',async(req,res)=>{
+  res.render('dashboard');
  })
   
   app.use(router);

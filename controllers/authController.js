@@ -1,7 +1,8 @@
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
+import express from "express";
 
-
+const app = express();
 //membuat jwt
 const maxAge = 60*60;
 const createToken = (id) => {
@@ -12,7 +13,8 @@ const createToken = (id) => {
 
 //controller routes
 async function register_get(req, res){
-    res.render('register');
+    app.use(express.static('../views/register/'));
+    res.render('register/register');
   }
   
   async function login_get (req, res) {
