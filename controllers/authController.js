@@ -11,14 +11,15 @@ const createToken = (id) => {
   });
 };
 
+
+
 //controller routes
 async function register_get(req, res){
-    app.use(express.static('../views/register/'));
     res.render('register/register');
   }
   
   async function login_get (req, res) {
-    res.render('login');
+    res.render('login/login');
   }
   
   async function register_post (req, res) {
