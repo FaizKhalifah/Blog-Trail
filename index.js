@@ -2,11 +2,13 @@ import express from "express";
 import mongoose  from "mongoose";
 import router from "./routes/authRoute.js";
 import cookieParser from "cookie-parser";
+import staticMiddleware from "./middlewares/staticMiddleware.js";
 import process from "process";
 
-const currentDirectory = process.cwd();
 
+const currentDirectory = process.cwd();
 const app = express();
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('./public'));
@@ -23,5 +25,9 @@ mongoose.connect(connection)
  app.get('/dashboard',async(req,res)=>{
   res.render('dashboard');
  })
-  
-  app.use(router);
+
+ 
+app.use('/register',staticMiddleware.registerMiddleware);
+app.use('/login',staticMiddleware.loginMiddleware);
+app.use('/dashboard',staticMiddleware.dashboardMiddleware);
+app.use(router);
