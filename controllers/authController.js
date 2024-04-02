@@ -37,9 +37,14 @@ async function register_get(req, res){
   }
   
 async function login_post (req, res)  {
-    const { email,username, password,interest,blogs } = req.body;
-    console.log(email,username, password,interest,blogs );
-    res.send("user login");
+  const { username, password } = req.body;
+  try {
+    const user = await User.login(username, password);
+    res.status(200).json({ user: user._id });
+  } catch (err) {
+    res.status(400).json({});
+  }
+
 }
 
 export default {
