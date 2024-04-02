@@ -2,7 +2,7 @@ import express from "express";
 import mongoose  from "mongoose";
 import router from "./routes/authRoute.js";
 import cookieParser from "cookie-parser";
-import staticMiddleware from "./middlewares/staticMiddleware.js";
+import staticUtils from "./Utils/staticUtils.js";
 import process from "process";
 
 
@@ -27,7 +27,7 @@ mongoose.connect(connection)
  })
 
  
-app.use('/register',staticMiddleware.registerMiddleware);
-app.use('/login',staticMiddleware.loginMiddleware);
-app.use('/dashboard',staticMiddleware.dashboardMiddleware);
+app.use('/register',staticUtils.staticRegister);
+app.use('/login',staticUtils.staticLogin);
+app.use('/dashboard',staticUtils.staticDashboard);
 app.use(router);
