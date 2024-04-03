@@ -4,7 +4,7 @@ import express from "express";
 
 const app = express();
 //membuat jwt
-const maxAge = 60*60;
+const maxAge = 60;
 const createToken = (id) => {
   return jwt.sign({ id }, 'tokenRahasia', {
     expiresIn: maxAge
