@@ -12,8 +12,7 @@ try{
         headers: {'Content-Type': 'application/json'}
     });
     const data = await res.json();
-    console.log(data.username);
-    console.log(data.interest);
+    console.log(data);
     if(data.user){
         location.assign('/dashboard')
     }
