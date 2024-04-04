@@ -27,6 +27,6 @@ mongoose.connect(connection)
 app.use('/register',staticUtils.staticRegister);
 app.use('/login',staticUtils.staticLogin);
 app.get('/dashboard',requireAuth,(req,res)=>{
-   res.render('dashboard');
+   res.render('dashboard/dashboard');
 });
 app.use(router);

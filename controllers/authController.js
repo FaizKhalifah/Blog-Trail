@@ -21,6 +21,8 @@ async function register_get(req, res){
   async function login_get (req, res) {
     res.render('login/login');
   }
+
+  
   
   async function register_post (req, res) {
     const { email,username, password,interest,blogs } = req.body;
