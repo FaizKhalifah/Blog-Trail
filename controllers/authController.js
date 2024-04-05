@@ -53,6 +53,11 @@ async function login_post (req, res)  {
 
 }
 
+async function logout_get(req,res){
+  res.cookie('jwt', '', { maxAge: 1 });
+  res.redirect('/');
+}
+
 export default {
-    register_get,register_post,login_get,login_post
+    register_get,register_post,login_get,login_post,logout_get
 }
