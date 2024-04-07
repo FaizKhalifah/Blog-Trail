@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import staticUtils from "./Utils/staticUtils.js";
 import requireAuth from "./middlewares/authMiddleware.js";
 import process from "process";
+import staticRouter from "./routes/staticRoute.js";
+import authRouter from "./routes/authRoute.js";
 
 
 const currentDirectory = process.cwd();
@@ -23,11 +25,9 @@ mongoose.connect(connection)
     res.sendFile('./public/index.html',{root:currentDirectory});
  })
 
+ app.use(staticRouter);
 
-app.use('/register',staticUtils.staticRegister);
-app.use('/login',staticUtils.staticLogin);
-app.use('/dashboard',staticUtils.staticDashboard);
 app.get('/dashboard',requireAuth,(req,res)=>{
    res.render('dashboard/dashboard');
 });
-app.use(router);
+app.use(authRouter);
