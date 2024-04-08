@@ -30,4 +30,8 @@ mongoose.connect(connection)
 app.get('/dashboard',requireAuth,(req,res)=>{
    res.render('dashboard/dashboard');
 });
+
+app.get('/posts',requireAuth,(req,res)=>{
+   res.render('posts/posts');
+})
 app.use(authRouter);

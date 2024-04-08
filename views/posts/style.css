@@ -79,11 +79,6 @@ aside ul{
     margin-top: 0px;
 }
 
-aside li a{
-    color: #5A9367;
-    text-decoration: none;
-}
-
 aside li:first-child{
     background-color: #5A9367;
     color: white;
@@ -91,16 +86,20 @@ aside li:first-child{
 
 aside li{
     width: 80%;
-    color: #5A9367;
     padding: 1rem ;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1.2rem;
 }
 
-aside li a:hover{
+aside li:hover{
     background-color: #5A9367;
     color: white;
+}
+
+aside li a{
+    color: #5A9367;
+    text-decoration: none;
 }
 
 .content{
