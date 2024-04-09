@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/User.js";
+import User from "../models/user.js";
 
 
 const requireAuth=(req,res,next)=>{
@@ -40,4 +40,6 @@ const checkUser = (req,res,next)=>{
       }
 }
 
-export default {requireAuth,checkUser};
+export default {
+    requireAuth,checkUser
+}
