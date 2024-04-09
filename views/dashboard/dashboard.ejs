@@ -31,7 +31,45 @@
             </ul>
         </aside>
         <div class="content">
-            <h1>Welcome, <%= user.username %></h1>
+            <div class="upper">
+                <h1><%= user.username %></h1>
+                <p>Email : <%= user.email %></p>
+                <p>Interest : <%= user.interest %></p>
+                <p>Blogs : <%= user.blogs.length %> </p>
+            </div>
+            <hr>
+            <div class="lower">
+                <h1>Edit Profile</h1>
+                <form action="">
+                    <label for="email">email</label>
+                    <input type="text" name="email" id="email" placeholder="Just enter a dummy email"><br>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Enter a creative username"><br>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="ssh...don't share your password"><br>
+                    <label for="interest">Interest</label>
+                    <select name="interest" id="interest">
+                        <option value="technology">Information and technology</option>
+                        <option value="education">Education</option>
+                        <option value="health">Health</option>
+                        <option value="sport">Sport</option>
+                        <option value="lifestyle">lifestyle</option>
+                    </select><br>
+                    <button>Confirm</button>
+                </form>
+                <hr>
+                <h2>Additional</h2>
+                <form action="">
+                    <label for="location">Add location : </label>
+                    <input type="text" name="location" id="location" placeholder="Add where you currently live right now"><br>
+                    <label for="Education">Add Education: </label>
+                    <input type="text" name="Education" id="Education" placeholder="Add your last education"><br>
+                    <label for="Hobby">Add Hobby: </label>
+                    <input type="text" name="Hobby" id="Hobby"><br>
+                    <label for="quote">Add quote: </label>
+                    <input type="text" name="quote" id="quote" placeholder="say something you want other people to hear"><br>
+                </form>
+            </div>
         </div>
     </main>
 </body>
