@@ -5,6 +5,7 @@ import process from "process";
 import staticRouter from "./routes/staticRoute.js";
 import authRouter from "./routes/authRoute.js";
 import protectedRouter from "./routes/protectedRoute.js";
+import authMiddleware from "./middlewares/authMiddleware.js"
 
 
 const currentDirectory = process.cwd();
@@ -23,6 +24,7 @@ mongoose.connect(connection)
     res.sendFile('./public/index.html',{root:currentDirectory});
  })
 
+app.use('*',authMiddleware.checkUser);
 app.use(staticRouter);
 app.use(authRouter);
 app.use(protectedRouter);
