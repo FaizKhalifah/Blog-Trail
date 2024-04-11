@@ -33,7 +33,7 @@ async function fetchOne(email,username,password){
 }
 
 async function fetchAll(){
-    const AllUser = await User.find();
+    const  AllUser = await User.find();
     return AllUser;
 }
 
