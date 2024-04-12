@@ -38,3 +38,4 @@ async function fetchAll(){
 export default{
     addBlog,deleteBlog,fetchOne,fetchAll
 }
+

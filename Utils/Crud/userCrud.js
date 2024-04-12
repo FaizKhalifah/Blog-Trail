@@ -37,6 +37,20 @@ async function fetchAll(){
     return AllUser;
 }
 
+async function updateUser(email,username,password,interest){
+    const fetchedUser = fetchOne(email,username);
+    if(fetchedUser){
+        fetchedUser.email=email;
+        fetchedUser.username=username;
+        fetchedUser.password=password;
+        fetchedUser.interest=interest;
+        return;
+    }else{
+        console.log("error");
+        return;
+    }
+}
+
 export default{
-    addUser,deleteUser,fetchOne,fetchAll
+    addUser,deleteUser,fetchOne,fetchAll,updateUser
 }
