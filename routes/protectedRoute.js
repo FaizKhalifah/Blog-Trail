@@ -11,4 +11,5 @@ protectedRouter.get('/dashboard',authMiddleware.requireAuth,(req,res)=>{
     res.render('posts/posts');
  })
 
+
  export default protectedRouter;
