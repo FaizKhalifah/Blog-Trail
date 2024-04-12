@@ -5,7 +5,8 @@ async function addUser(email,username,password,interest){
         email:email,
         username:username,
         password:password,
-        interest:interest
+        interest:interest,
+        blogs:[]
     };
     const newUser = new User(newIdentity);
     await newUser.save();
@@ -22,9 +23,8 @@ async function deleteUser(email,username,password){
     return;
 }
 
-async function fetchOne(email,username,password){
+async function fetchOne(username,password){
     const identity={
-        email:email,
         username:username,
         password:password
     }
@@ -37,13 +37,21 @@ async function fetchAll(){
     return AllUser;
 }
 
-async function updateUser(email,username,password,interest){
-    const fetchedUser = fetchOne(email,username);
+async function updateUser(currentusername,currentpassword,email,username,password,interest){
+    const fetchedUser = await fetchOne(currentusername,currentpassword);
+    const currentData = {
+        username:currentusername,
+        password:currentpassword
+    }
+    const updatedData = {
+        email:email,
+        username:username,
+        password:password,
+        interest:interest,
+        blogs:fetchedUser.blogs
+    }
     if(fetchedUser){
-        fetchedUser.email=email;
-        fetchedUser.username=username;
-        fetchedUser.password=password;
-        fetchedUser.interest=interest;
+        await User.updateOne(currentData,{$set:updatedData});
         return;
     }else{
         console.log("error");
