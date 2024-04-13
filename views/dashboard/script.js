@@ -16,15 +16,15 @@ form.addEventListener('submit',async(e)=>{
                 email,username,password,interest
             }),
             headers: {'Content-Type': 'application/json'}
-        }).then(response=>{
-            return response.json();
-        }).then(data=>{
-            document.getElementById('userHeader').textContent = `${user.username}`;
-            document.getElementById('userEmail').textContent = `Email : ${user.email}`;
-            document.getElementById('userInterest').textContent = `Interest : ${user.interest}`;
-            document.getElementById('userBlogs').textContent = `Blogs : ${user.blogs}`;
-        });
-        console.log(res);
+        })
+
+        const data = await res.json();
+        const updatedData = data.updatedData;
+        document.getElementById('userHeader').textContent = `${updatedData.username}`;
+        document.getElementById('userEmail').textContent = `Email : ${updatedData.email}`;
+        document.getElementById('userInterest').textContent = `Interest : ${updatedData.interest}`;
+
+        
     }catch(err){
         console.log(err);
     }
