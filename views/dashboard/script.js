@@ -1,7 +1,5 @@
 const form = document.querySelector("form");
 
-
-
 form.addEventListener('submit',async(e)=>{
     e.preventDefault();
     const email = form.email.value;
@@ -16,18 +14,26 @@ form.addEventListener('submit',async(e)=>{
                 email,username,password,interest
             }),
             headers: {'Content-Type': 'application/json'}
-        }).then(response=>{
-            return response.json();
-        }).then(data=>{
-            document.getElementById('userHeader').textContent = `${user.username}`;
-            document.getElementById('userEmail').textContent = `Email : ${user.email}`;
-            document.getElementById('userInterest').textContent = `Interest : ${user.interest}`;
-            document.getElementById('userBlogs').textContent = `Blogs : ${user.blogs}`;
-        });
-        console.log(res);
+        })
+        const data = await res.json();
+        const updatedData = data.updatedData;
+        await editUpper(updatedData);
+        await clearForm(form);
+        
     }catch(err){
         console.log(err);
     }
-
    
 })
+
+async function editUpper(updatedData){
+    document.getElementById('userHeader').textContent = `${updatedData.username}`;
+    document.getElementById('userEmail').textContent = `Email : ${updatedData.email}`;
+    document.getElementById('userInterest').textContent = `Interest : ${updatedData.interest}`;
+}
+
+async function clearForm(form){
+    form.email.value='';
+    form.username.value='';
+    form.password.value='';
+}
