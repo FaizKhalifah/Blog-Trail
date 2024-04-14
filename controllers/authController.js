@@ -43,6 +43,7 @@ async function login_post (req, res)  {
   try {
     const user = await User.login(username, password);
     const token = createToken(user._id);
+    // localStorage.setItem('token',token);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(200).json({
       user: user._id

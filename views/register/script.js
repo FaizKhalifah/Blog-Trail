@@ -16,6 +16,7 @@ try{
         headers: {'Content-Type': 'application/json'}
     });
     const data = await res.json();
+    localStorage.setItem('token', data.token);
     console.log(data);
     if(data.user){
         location.assign('/dashboard')

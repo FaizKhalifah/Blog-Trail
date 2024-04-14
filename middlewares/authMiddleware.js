@@ -40,6 +40,26 @@ const checkUser = (req,res,next)=>{
       }
 }
 
+const authenticateToken=(req,res,next)=>{
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if(token){
+        jwt.verify(token,'tokenRahasia', async(err,decodedToken)=>{
+            if(err){
+                res.locals.user=null;
+                next();
+            }else{
+                let user = await User.findById(decodedToken.id);
+                req.user = user;
+                next();
+            }
+        })
+    }else {
+        res.locals.user = null;
+        next();
+      }
+}
+
 export default {
     requireAuth,checkUser
 }
