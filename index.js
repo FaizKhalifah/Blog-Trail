@@ -5,6 +5,7 @@ import process from "process";
 import staticRouter from "./routes/staticRoute.js";
 import authRouter from "./routes/authRoute.js";
 import userRouter from "./routes/userRoute.js";
+import blogRouter from "./routes/blogRoute.js";
 import protectedRouter from "./routes/protectedRoute.js";
 import authMiddleware from "./middlewares/authMiddleware.js"
 
@@ -29,6 +30,7 @@ app.use('*',authMiddleware.checkUser);
 app.use(staticRouter);
 app.use(authRouter);
 app.use(userRouter);
+app.use(blogRouter);
 app.use(protectedRouter);
 
 

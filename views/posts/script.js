@@ -1,27 +1,30 @@
-async function getUserInfo() {
+const token = localStorage.getItem('token');
+async function fetchData() {
     try {
-      // Ambil token dari Local Storage
+      // Mengambil token dari Local Storage
       const token = localStorage.getItem('token');
-      
-      // Lakukan permintaan ke server untuk mendapatkan informasi pengguna
-      const response = await fetch('/api/user-info', {
-        method: 'GET',
+  
+      // Membuat permintaan Fetch API dengan async/await
+      const response = await fetch('/getBlog', {
+        method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
   
+      // Memeriksa status respons
       if (!response.ok) {
-        throw new Error('Failed to fetch user info');
+        throw new Error('Failed to fetch user data');
       }
   
-      // Parse respons JSON
+      // Parsing respons JSON
       const data = await response.json();
-      console.log(data); // Lakukan sesuatu dengan data pengguna yang diterima
+  
+      // Lakukan sesuatu dengan data yang diterima
+      console.log(data.user.email);
+      console.log(data.user.username);
     } catch (error) {
       console.error('Error:', error);
-      // Handle error
     }
   }
-
-await getUserInfo();
+fetchData();
