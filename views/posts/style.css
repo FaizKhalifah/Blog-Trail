@@ -105,5 +105,9 @@ aside li a{
 .content{
     padding: 2rem;
     width: 80%;
-    background-color: yellow;
+}
+
+.posts, addPost{
+    width: 100%;
+    padding:1rem;
 }
