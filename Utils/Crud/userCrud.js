@@ -23,7 +23,7 @@ async function deleteUser(email,username,password){
     return;
 }
 
-async function fetchOne(username,password){
+async function readOne(username,password){
     const identity={
         username:username,
         password:password
@@ -32,13 +32,13 @@ async function fetchOne(username,password){
     return fetchedUser;
 }
 
-async function fetchAll(){
+async function readAll(){
     const  AllUser = await User.find();
     return AllUser;
 }
 
 async function updateUser(currentusername,currentpassword,email,username,password,interest){
-    const fetchedUser = await fetchOne(currentusername,currentpassword);
+    const fetchedUser = await readOne(currentusername,currentpassword);
     const currentData = {
         username:currentusername,
         password:currentpassword
@@ -60,5 +60,5 @@ async function updateUser(currentusername,currentpassword,email,username,passwor
 }
 
 export default{
-    addUser,deleteUser,fetchOne,fetchAll,updateUser
+    addUser,deleteUser,readOne,readAll,updateUser
 }
