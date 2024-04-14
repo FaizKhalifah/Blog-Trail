@@ -21,7 +21,7 @@ async function deleteBlog(title,authorId){
     return;
 }
 
-async function fetchOne(title,authorId){
+async function readOne(title,authorId){
     const identity={
         title:title,
         authorId:authorId
@@ -30,12 +30,12 @@ async function fetchOne(title,authorId){
     return fetchedBlog;
 }
 
-async function fetchAll(){
+async function readAll(){
     const  AllBlog = await Blog.find();
     return AllBlog;
 }
 
 export default{
-    addBlog,deleteBlog,fetchOne,fetchAll
+    addBlog,deleteBlog,readOne,readAll
 }
 

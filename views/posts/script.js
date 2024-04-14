@@ -19,10 +19,12 @@ async function fetchData() {
   
       // Parsing respons JSON
       const data = await response.json();
+      const userBlog = data.userBlog;
   
       // Lakukan sesuatu dengan data yang diterima
-      console.log(data.user.email);
-      console.log(data.user.username);
+      console.log(userBlog);
+      console.log(userBlog.length)
+      
     } catch (error) {
       console.error('Error:', error);
     }
