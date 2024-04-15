@@ -12,9 +12,12 @@ staticLogin.use(express.static('views/login'));
 const staticPosts = express();
 staticPosts.use(express.static('views/posts'));
 
+const staticNewBlog = express();
+staticNewBlog.use(express.static('views/newBlog'));
+
 
 export default{
-    staticRegister,staticDashboard,staticLogin,staticPosts
+    staticRegister,staticDashboard,staticLogin,staticPosts,staticNewBlog
 }
 
 
