@@ -27,6 +27,24 @@ async function showBlog(){
   console.log(userBlog);
   if(userBlog.length==0){
     posts.append("Belum ada blog yang dipublish");
+  }else{
+    userBlog.forEach(blog=>{
+      let blogDiv = document.createElement('div');
+      let blogHeader = document.createElement('h2');
+      blogHeader.textContent=blog.blogTitle;
+      let blogAuthor = document.createElement('p');
+      blogAuthor.textContent=blog.author;
+      let blogCategory = document.createElement('p');
+      blogCategory.textContent=blog.category;
+      let readButton = document.createElement('button');
+      readButton.textContent="Read";
+
+      blogDiv.appendChild(blogHeader);
+      blogDiv.appendChild(blogAuthor);
+      blogDiv.appendChild(blogCategory);
+      blogDiv.appendChild(readButton);
+      posts.appendChild(blogDiv);
+    })
   }
 }
 
