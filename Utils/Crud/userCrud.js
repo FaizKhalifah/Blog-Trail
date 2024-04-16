@@ -1,10 +1,13 @@
 import User from "../../models/user.js";
+import hashFunction from "../hashUtils.js";
+import checkPassword from "../checkPasswordUtils.js";
 
 async function addUser(email,username,password,interest){
+    let hashedpassword = await hashFunction(password);
     const newIdentity = {
         email:email,
         username:username,
-        password:password,
+        password:hashedpassword,
         interest:interest,
         blogs:[]
     };
@@ -24,12 +27,18 @@ async function deleteUser(email,username,password){
 }
 
 async function readOne(username,password){
-    const identity={
-        username:username,
-        password:password
+    const user = await User.findOne({username:username});
+    const userStatus = checkPassword(password,user.password);
+    if(userStatus){
+        const identity={
+            username:username,
+            password:user.password
+        }
+        const fetchedUser = await User.findOne(identity);
+        return fetchedUser;
     }
-    const fetchedUser = await User.findOne(identity);
-    return fetchedUser;
+    console.log("error");
+    return; 
 }
 
 async function readAll(){
@@ -78,4 +87,5 @@ async function addBlog(username,password,blogTitle,category,content){
 export default{
     addUser,deleteUser,readOne,readAll,updateUser,addBlog
 }
+
 

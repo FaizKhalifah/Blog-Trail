@@ -1,6 +1,6 @@
 import Blog from "../../models/blog.js";
 
-async function addBlog(title,author,category,content){
+async function createBlog(title,author,category,content){
     const newIdentity={
         title:title,
         author:author,
@@ -36,6 +36,6 @@ async function readAll(){
 }
 
 export default{
-    addBlog,deleteBlog,readOne,readAll
+    createBlog,deleteBlog,readOne,readAll
 }
 
