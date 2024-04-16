@@ -1,4 +1,3 @@
-import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 import express from "express";
 import userCrud from "../Utils/Crud/userCrud.js";
@@ -27,13 +26,14 @@ async function register_get(req, res){
   
   
   async function register_post (req, res) {
-    const { email,username, password,interest,blogs } = req.body;
+    const { email,username, password,interest} = req.body;
 
     try {
-      const user = await userCrud.addUser({  email,username, password,interest,blogs })
-      const token = createToken(user._id);
+      const user = await userCrud.addUser(email,username, password,interest);
+      const fetchedUser = await userCrud.readOne(username,password);
+      const token = createToken(fetchedUser.id);
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-      res.status(201).json({ user: user._id });
+      res.status(201).json({ user: fetchedUser.id });
     }
     catch(err) {
       console.log(err);
@@ -56,10 +56,7 @@ async function login_post (req, res)  {
 
 
 async function loginUser(username,password){
-  const identity = {
-    username:username
-  }
-  const user = await userCrud.readOne(identity);
+  const user = await userCrud.readOne(username,password);
   if (user) {
     const auth = await bcrypt.compare(password, user.password);
     if (auth) {

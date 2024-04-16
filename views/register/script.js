@@ -5,13 +5,12 @@ form.addEventListener('submit',async(e)=>{
     const username = form.username.value;
     const password = form.password.value;
     const interest = form.interest.value;
-    const blogs = [];
 
     try{
         const res = await fetch('/register',{
             method:'POST',
             body:JSON.stringify({
-                email,username,password,interest,blogs
+                email,username,password,interest
             }),
             headers: {'Content-Type': 'application/json'}
         });

@@ -1,4 +1,6 @@
 import mongoose, { Schema } from "mongoose";
+mongoose.connect('mongodb://localhost:27017/BlogTrail');
+
 
 const blogSchema = new Schema({
     title:String,

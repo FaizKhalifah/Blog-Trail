@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import bcrypt from "bcrypt";
 mongoose.connect('mongodb://localhost:27017/BlogTrail');
 
 const userSchema = new Schema({

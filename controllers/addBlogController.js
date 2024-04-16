@@ -8,6 +8,7 @@ async function addBlog_post(req,res){
     const fetchedUser = await userCrud.readOne(user.username,user.password);
     await blogCrud.createBlog(blogTitle,fetchedUser.username,category,content);
     await userCrud.addBlog(fetchedUser.username,fetchedUser.password,blogTitle,category,content);
+    res.status(201).json({ user: fetchedUser.id });
     return;
 }
 async function getUserInfo(req,res){

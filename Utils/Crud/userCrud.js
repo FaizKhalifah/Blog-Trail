@@ -1,9 +1,11 @@
 import User from "../../models/user.js";
 import hashFunction from "../hashUtils.js";
 import checkPassword from "../checkPasswordUtils.js";
+import bcrypt from "bcrypt";
 
 async function addUser(email,username,password,interest){
-    let hashedpassword = await hashFunction(password);
+    const salt = await bcrypt.genSalt();
+    let hashedpassword = await bcrypt.hash(password,salt);
     const newIdentity = {
         email:email,
         username:username,
@@ -79,7 +81,7 @@ async function addBlog(username,password,blogTitle,category,content){
         category:category,
         content:content
     }
-    const user = await readOne(userIdentity);
+    const user = await readOne(username,password);
     await User.updateOne(user,{$push:{blogs:blogIdentity}});
     return;
 }
