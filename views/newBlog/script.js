@@ -6,15 +6,19 @@ form.addEventListener('submit',async(e)=>{
     const content = form.content.value;
 
     try{
-
-    }catch(err){
-        console.log(err);
-        const res = await fetch('/register',{
+        const res = await fetch('/addBlog',{
             method:'POST',
             body:JSON.stringify({
                 blogTitle,category,content
             }),
             headers: {'Content-Type': 'application/json'}
         });
+        const data = await res.json();
+        if(data.user){
+            location.assign('/posts')
+        }
+    }catch(err){
+        console.log(err);
+       
     }
 })

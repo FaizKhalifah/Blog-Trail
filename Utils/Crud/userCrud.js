@@ -59,6 +59,23 @@ async function updateUser(currentusername,currentpassword,email,username,passwor
     }
 }
 
-export default{
-    addUser,deleteUser,readOne,readAll,updateUser
+async function addBlog(username,password,blogTitle,category,content){
+    const userIdentity = {
+        username:username,
+        password:password
+    }
+    const blogIdentity={
+        blogTitle:blogTitle,
+        author:username,
+        category:category,
+        content:content
+    }
+    const user = await readOne(userIdentity);
+    await User.updateOne(user,{$push:{blogs:blogIdentity}});
+    return;
 }
+
+export default{
+    addUser,deleteUser,readOne,readAll,updateUser,addBlog
+}
+
