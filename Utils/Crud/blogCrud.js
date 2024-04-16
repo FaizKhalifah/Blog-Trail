@@ -1,9 +1,9 @@
 import Blog from "../../models/blog.js";
 
-async function addBlog(title,authorId,category,content){
+async function addBlog(title,author,category,content){
     const newIdentity={
         title:title,
-        authorId:authorId,
+        author:author,
         category:category,
         content:content
     };
@@ -12,19 +12,19 @@ async function addBlog(title,authorId,category,content){
     return;
 }
 
-async function deleteBlog(title,authorId){
+async function deleteBlog(title,author){
     const identity={
         title:title,
-        authorId:authorId
+        author:author
     }
     await Blog.deleteOne(identity);
     return;
 }
 
-async function readOne(title,authorId){
+async function readOne(title,author){
     const identity={
         title:title,
-        authorId:authorId
+        author:author
     }
     const fetchedBlog = await Blog.findOne(identity);
     return fetchedBlog;
