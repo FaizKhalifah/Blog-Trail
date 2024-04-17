@@ -13,7 +13,7 @@
         </span>
         <nav>
             <ul>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li><a href="#">Writer's Hub</a></li>
                 <li><a href="#">Resources</a></li>
                 <li><a href="/logout">Sign out</a></li>
@@ -33,9 +33,12 @@
         <div class="content">
             <div class="upper">
                 <h1 id="userHeader"><%= user.username %></h1>
-                <p id="userEmail">Email : <%= user.email %></p>
-                <p id="userInterest">Interest : <%= user.interest %></p>
-                <p id="userBlogs">Blogs : <%= user.blogs.length %> </p>
+                <p class="label">Email</p>
+                <p id="userEmail"><%= user.email %></p>
+                <p class="label">Interest</p>
+                <p id="userInterest"><%= user.interest %></p>
+                <p class="label">Blogs Written</p>
+                <p id="userBlogs"><%= user.blogs.length %> </p>
             </div>
             <hr>
             <div class="lower">

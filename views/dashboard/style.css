@@ -112,3 +112,28 @@ aside li a:hover{
     padding: 2rem;
     width: 80%;
 }
+
+.upper{
+    padding: 2rem;
+}
+
+.upper h1{
+    font-size: 3rem;
+}
+
+.label{
+    color: gray;
+    margin-top: 1.5rem;
+}
+
+#userEmail{
+    color: rgb(0, 147, 206);
+}
+
+#userBlogs{
+    font-size: 3rem;
+}
+
+.lower{
+    padding: 2rem;
+}
