@@ -60,11 +60,12 @@ main{
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 aside{
     width: 20%;
+    border-right: 1px solid rgb(128, 124, 124);
 }
 
 aside ul{
@@ -73,41 +74,112 @@ aside ul{
     justify-content: center;
     align-items: flex-start;
     list-style-type: none;
-    border-right: 1px solid rgb(128, 124, 124);
     padding: 2rem;
     padding-bottom: 15rem;
     margin-top: 0px;
 }
 
-aside li:first-child{
-    background-color: #5A9367;
-    color: white;
-}
-
 aside li{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 2rem;
     width: 80%;
-    padding: 1rem ;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 1.2rem;
-}
-
-aside li:hover{
-    background-color: #5A9367;
-    color: white;
 }
 
 aside li a{
     color: #5A9367;
     text-decoration: none;
+    width: 100%;
+    transition: 0.3s;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.current{
+    background-color: #5A9367;
+    color: white;
+}
+
+
+aside li a:hover{
+    background-color: #5A9367;
+    color: white;
 }
 
 .content{
     padding: 2rem;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.posts, addPost{
+.content h1{
+    color: #5A9367;
+}
+
+.posts, .addPost{
     width: 100%;
     padding:1rem;
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.5rem;
+}
+
+.posts div{
+    width: 80%;
+    padding: 1.5rem;
+    border: 1px solid gray;
+    border-radius: 1.5rem;
+    box-shadow: 1px 1px 3px black;
+}
+
+.posts div button{
+    margin-top: 1.3rem;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    border: 1px solid white;
+    background-color: #264653;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.posts div button:hover{
+    background-color: white;
+    border-color: #264653;
+    color: #264653;
+}
+
+
+.addPost{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.addPost a{
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    color: white;
+    border: 1px solid white;
+    background-color: #264653;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.addPost a:hover{
+    background-color: white;
+    border-color: #264653;
+    color: #264653;
 }
