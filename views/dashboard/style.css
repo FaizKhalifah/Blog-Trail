@@ -60,11 +60,12 @@ main{
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 aside{
     width: 20%;
+    border-right: 1px solid rgb(128, 124, 124);
 }
 
 aside ul{
@@ -73,7 +74,7 @@ aside ul{
     justify-content: center;
     align-items: flex-start;
     list-style-type: none;
-    border-right: 1px solid rgb(128, 124, 124);
+    
     padding: 2rem;
     padding-bottom: 15rem;
     margin-top: 0px;
@@ -118,6 +119,7 @@ aside li a:hover{
 }
 
 .upper h1{
+    color: #5A9367;
     font-size: 3rem;
 }
 
@@ -136,4 +138,59 @@ aside li a:hover{
 
 .lower{
     padding: 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.lower h1, .lower h2{
+    color: #5A9367;
+}
+
+form{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+label{
+    color: gray;
+}
+
+input[type=text], input[type=password]{
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+ outline: none;
+ border-color: #FFC86A;
+}
+
+select{
+    padding: 1rem 2rem;
+    border: 1px solid rgb(180, 179, 179);
+    background-color: white;
+}
+
+button{
+    padding: 1rem 2.5rem;
+    border-radius: 2rem;
+    font-size: large;
+    color: white;
+    border: 1px solid white;
+    background-color: #264653;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: white;
+    border-color: #264653;
+    color: #264653;
 }
