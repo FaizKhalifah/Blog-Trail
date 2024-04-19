@@ -11,6 +11,10 @@ protectedRouter.get('/dashboard',authMiddleware.requireAuth,(req,res)=>{
     res.render('posts/posts');
  })
 
+ protectedRouter.get('/feedbacks',authMiddleware.requireAuth,(req,res)=>{
+   res.render('feedbacks/feedbacks');
+ })
+
  protectedRouter.get('/newBlog',authMiddleware.requireAuth,(req,res)=>{
    res.render('newBlog/newBlog');
 })

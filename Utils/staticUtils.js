@@ -15,9 +15,12 @@ staticPosts.use(express.static('views/posts'));
 const staticNewBlog = express();
 staticNewBlog.use(express.static('views/newBlog'));
 
+const staticFeedbacks = express();
+staticFeedbacks.use(express.static('views/feedbacks'));
+
 
 export default{
-    staticRegister,staticDashboard,staticLogin,staticPosts,staticNewBlog
+    staticRegister,staticDashboard,staticLogin,staticPosts,staticNewBlog,staticFeedbacks
 }
 
 
