@@ -1,9 +1,8 @@
 import jwt from "jsonwebtoken";
-import express from "express";
 import userCrud from "../Utils/Crud/userCrud.js";
 import bcrypt from "bcrypt";
 
-const app = express();
+
 //membuat jwt
 const maxAge = 60*60;
 const createToken = (id) => {
