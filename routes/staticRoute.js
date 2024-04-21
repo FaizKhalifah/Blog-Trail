@@ -9,5 +9,7 @@ staticRouter.use('/dashboard',staticUtils.staticDashboard);
 staticRouter.use('/posts',staticUtils.staticPosts);
 staticRouter.use('/newBlog',staticUtils.staticNewBlog);
 staticRouter.use('/feedbacks',staticUtils.staticFeedbacks);
+staticRouter.use('/readBlog',staticUtils.staticReadBlog);
+
 
 export default staticRouter;
