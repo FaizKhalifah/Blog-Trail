@@ -38,6 +38,32 @@ async function showBlog(){
       blogCategory.textContent=blog.category;
       let readButton = document.createElement('button');
       readButton.textContent="Read";
+      readButton.classList.add('read-more-button');
+
+      readButton.addEventListener('click',async function(){
+        try {
+          // Lakukan permintaan Fetch API
+          const response = await fetch('/readBlog', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  title: blog.blogTitle,
+                  author: blog.author,
+                  category: blog.category,
+                  content: blog.content
+              })
+          });
+          const data = await response.json();
+          console.log(data);
+          if(data.blog){
+            location.assign('/readBlog');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+      }
+      })
 
       blogDiv.appendChild(blogHeader);
       blogDiv.appendChild(blogAuthor);
