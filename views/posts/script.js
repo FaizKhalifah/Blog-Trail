@@ -23,8 +23,6 @@ async function fetchData() {
 async function showBlog(){
   const posts = document.querySelector(".posts");
   const userBlog = await fetchData();
-  console.log(posts);
-  console.log(userBlog);
   if(userBlog.length==0){
     posts.append("Belum ada blog yang dipublish");
   }else{
