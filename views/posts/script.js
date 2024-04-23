@@ -42,18 +42,13 @@ async function showBlog(){
 
       readButton.addEventListener('click',async function(){
         try {
-          // Lakukan permintaan Fetch API
           const response = await fetch('/readBlog', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                  title: blog.blogTitle,
-                  author: blog.author,
-                  category: blog.category,
-                  content: blog.content
-              })
+            method:'POST',
+            body:JSON.stringify({
+                blogTitle:blog.blogTitle,
+                author:blog.author
+            }),
+            headers: {'Content-Type': 'application/json'}
           });
           const data = await response.json();
           console.log(data);

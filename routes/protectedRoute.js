@@ -19,5 +19,11 @@ protectedRouter.get('/dashboard',authMiddleware.requireAuth,(req,res)=>{
    res.render('newBlog/newBlog');
 })
 
+protectedRouter.get('/readBlog',authMiddleware.requireAuth,(req,res)=>{
+   res.render('readBlog/readBlog');
+})
+
+
+
 
  export default protectedRouter;
