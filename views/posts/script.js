@@ -23,8 +23,6 @@ async function fetchData() {
 async function showBlog(){
   const posts = document.querySelector(".posts");
   const userBlog = await fetchData();
-  console.log(posts);
-  console.log(userBlog);
   if(userBlog.length==0){
     posts.append("Belum ada blog yang dipublish");
   }else{
@@ -38,6 +36,27 @@ async function showBlog(){
       blogCategory.textContent=blog.category;
       let readButton = document.createElement('button');
       readButton.textContent="Read";
+      readButton.classList.add('read-more-button');
+
+      readButton.addEventListener('click',async function(){
+        try {
+          const response = await fetch('/readBlog', {
+            method:'POST',
+            body:JSON.stringify({
+                blogTitle:blog.blogTitle,
+                author:blog.author
+            }),
+            headers: {'Content-Type': 'application/json'}
+          });
+          const data = await response.json();
+          console.log(data);
+          if(data.blog){
+            location.assign('/readBlog');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+      }
+      })
 
       blogDiv.appendChild(blogHeader);
       blogDiv.appendChild(blogAuthor);

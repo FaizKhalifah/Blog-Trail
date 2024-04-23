@@ -18,7 +18,7 @@ form.addEventListener('submit',async(e)=>{
         localStorage.setItem('token', data.token);
         console.log(data);
         if(data.user){
-            location.assign('/dashboard')
+            location.assign('/dashboard');
         }
     }catch(err){
         console.log(err);
