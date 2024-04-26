@@ -1,4 +1,5 @@
 import userCrud from "./Crud/userCrud.js";
+import blogCrud from "./Crud/blogCrud.js";
 
 async function fetchUser(req,res){
     const user = res.locals.user;

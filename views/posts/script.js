@@ -39,23 +39,7 @@ async function showBlog(){
       readButton.classList.add('read-more-button');
 
       readButton.addEventListener('click',async function(){
-        try {
-          const response = await fetch('/readBlog', {
-            method:'POST',
-            body:JSON.stringify({
-                blogTitle:blog.blogTitle,
-                author:blog.author
-            }),
-            headers: {'Content-Type': 'application/json'}
-          });
-          const data = await response.json();
-          console.log(data);
-          if(data.blog){
-            location.assign('/readBlog');
-          }
-      } catch (error) {
-          console.error('Error:', error);
-      }
+        window.location.href = `/readBlog/${blog.title}-${blog.author}`;
       })
 
       blogDiv.appendChild(blogHeader);

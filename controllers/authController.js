@@ -30,7 +30,6 @@ async function register_get(req, res){
     try {
       const user = await userCrud.addUser(email,username, password,interest);
       const fetchedUser = await userCrud.readOne(username,password);
-      const token = createToken(fetchedUser.id);
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
       res.status(201).json({ user: fetchedUser.id });
     }
