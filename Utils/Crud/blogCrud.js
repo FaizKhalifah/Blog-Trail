@@ -30,12 +30,19 @@ async function readOne(title,author){
     return fetchedBlog;
 }
 
+async function readById(id){
+    const blog = await Blog.findById(id);
+    return blog;
+}
+
 async function readAll(){
     const  AllBlog = await Blog.find();
     return AllBlog;
 }
 
+
+
 export default{
-    createBlog,deleteBlog,readOne,readAll
+    createBlog,deleteBlog,readOne,readById, readAll
 }
 

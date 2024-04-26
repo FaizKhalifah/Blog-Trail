@@ -15,4 +15,11 @@ async function readBlog_post(req,res){
     return;
 }
 
-export default readBlog_post;
+async function fetchBlogById(req,res){
+    const blog = await blogCrud.readById(req.params.id);
+    res.render('readBlog',{blog});
+}
+
+export default {
+    readBlog_post,fetchBlogById
+}

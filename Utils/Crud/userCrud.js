@@ -1,5 +1,5 @@
 import User from "../../models/user.js";
-import hashFunction from "../hashUtils.js";
+import blogCrud from "./blogCrud.js";
 import checkPassword from "../checkPasswordUtils.js";
 import bcrypt from "bcrypt";
 
@@ -82,6 +82,7 @@ async function addBlog(username,password,blogTitle,category,content){
         content:content
     }
     const user = await readOne(username,password);
+    const blog = await blogCrud.readOne(blogTitle,username);
     await User.updateOne(user,{$push:{blogs:blogIdentity}});
     return;
 }
