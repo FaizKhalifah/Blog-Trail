@@ -20,6 +20,13 @@ async function fetchBlogById(req,res){
     res.render('readBlog',{blog});
 }
 
+async function readBlogBySlug(req,res){
+    const {slug}=req.params;
+    const [title,author]=slug.split('-');
+    const blog = await blogCrud.readOne(title,author);
+    res.render('../views/readBlog/readBlog.ejs', { blog });
+}
+
 export default {
-    readBlog_post,fetchBlogById
+    readBlog_post,fetchBlogById,readBlogBySlug
 }
