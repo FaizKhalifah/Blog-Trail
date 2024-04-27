@@ -39,7 +39,7 @@ async function showBlog(){
       readButton.classList.add('read-more-button');
 
       readButton.addEventListener('click',async function(){
-        window.location.href = `/readBlog/${blog.title}-${blog.author}`;
+        window.location.href = `/readBlog/${blog.blogTitle}-${blog.author}`;
       })
 
       blogDiv.appendChild(blogHeader);
