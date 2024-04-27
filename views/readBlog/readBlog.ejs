@@ -7,11 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Ini halaman readBlog</h1>
-    <p>Judul: <%= blog.title %></p>
-    <p>Author: <%= blog.author %></p>
-    <p>Cateogry: <%= blog.category %></p>
-    <p>Content: <%= blog.content %></p>
+    <header>
+        <span id="title">
+            <p>BlogTrail</p>
+        </span>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Writer's Hub</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="/logout">Sign out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="title">
+            <h1><%= blog.title %></h1>
+            <hr>
+        </div>
+        <div class="content">
+            <div class="contentHeader">
+                <p>Author: <%= blog.author %></p>
+                <p>Cateogry: <%= blog.category %></p>
+            </div>
+            <div class="contentText">
+                <p><%= blog.content %></p>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <a href="/posts">Return</a>
+        </div>
+    </main>
+
 
 <script src="script.js"></script>
 </body>
