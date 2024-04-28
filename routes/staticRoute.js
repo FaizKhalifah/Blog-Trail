@@ -10,6 +10,7 @@ staticRouter.use('/posts',staticUtils.staticPosts);
 staticRouter.use('/newBlog',staticUtils.staticNewBlog);
 staticRouter.use('/feedbacks',staticUtils.staticFeedbacks);
 staticRouter.use('/readBlog',staticUtils.staticReadBlog);
+staticRouter.use('/connections',staticUtils.staticConnections);
 
 
 export default staticRouter;

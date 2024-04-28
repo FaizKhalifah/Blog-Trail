@@ -19,10 +19,14 @@ const staticFeedbacks = express();
 staticFeedbacks.use(express.static('views/feedbacks'));
 
 const staticReadBlog = express();
-staticReadBlog.use(express.static('views/readBlog'))
+staticReadBlog.use(express.static('views/readBlog'));
+
+const staticConnections = express();
+staticConnections.use(express.static('views/connections'));
 
 export default{
-    staticRegister,staticDashboard,staticLogin,staticPosts,staticNewBlog,staticFeedbacks,staticReadBlog
+    staticRegister,staticDashboard,staticLogin,staticPosts,staticNewBlog,staticFeedbacks,staticReadBlog,
+    staticConnections
 }
 
 
