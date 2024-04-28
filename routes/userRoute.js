@@ -17,5 +17,9 @@ userRouter.get('/feedbacks',authMiddleware.requireAuth,(req,res)=>{
    res.render('feedbacks/feedbacks');
  })
 
+ userRouter.get('/connections',authMiddleware.requireAuth,(req,res)=>{
+   res.render('connections/connections');
+ })
+
 
 export default userRouter;
