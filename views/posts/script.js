@@ -52,6 +52,21 @@ async function showBlog(){
         window.location.href = `/readBlog/${blog.blogTitle}-${blog.author}`;
       })
 
+      deleteButton.addEventListener('click',async function(){
+        const blogTitle = blog.blogTitle;
+        const author = blog.author;
+        const category = blog.category;
+        const res = await fetch('/deleteBlog',{
+          method:'POST',
+          body:JSON.stringify({
+              blogTitle,author,category
+          }),
+          headers: {'Content-Type': 'application/json'}
+      })
+      const data = await res.json();
+      console.log(data);
+      })
+
       buttons.appendChild(readButton);
       buttons.appendChild(editButton);
       buttons.appendChild(deleteButton);

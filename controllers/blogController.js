@@ -19,7 +19,13 @@ async function readBlogBySlug(req,res){
 }
 
 async function deleteBlog_post(req,res){
-
+    const {blogTitle,author,category}=req.body;
+    const user = res.locals.user;
+    const fetchedUser = await userCrud.readOne(user.username,user.password);
+    const blog = await blogCrud.readOne(blogTitle,author);
+    await userCrud.deleteBlog(fetchedUser.username,fetchedUser.password,blogTitle,author,category);
+    await blogCrud.deleteBlog(blogTitle,author);
+    res.status(201).json({message:"Blog berhasil dihapus"});
 }
 
 export default{
