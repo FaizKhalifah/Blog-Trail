@@ -1,6 +1,5 @@
 import userCrud from "../Utils/Crud/userCrud.js";
 import blogCrud from "../Utils/Crud/blogCrud.js";
-import fetchUtils from "../Utils/fetchUtils.js";
 
 async function addBlog_post(req,res){
     const {blogTitle,category,content}=req.body;
@@ -11,8 +10,18 @@ async function addBlog_post(req,res){
     res.status(201).json({ user: fetchedUser.id });
     return;
 }
-async function getUserInfo(req,res){
-    const user = res.locals.user;
-    res.json({ user: user, message: 'User data retrieved successfully' });
+
+async function readBlogBySlug(req,res){
+    const {slug}=req.params;
+    const [title,author]=slug.split('-');
+    const blog = await blogCrud.readOne(title,author);
+    res.render('../views/readBlog/readBlog.ejs', { blog });
 }
-export default {getUserInfo,addBlog_post};
+
+async function deleteBlog_post(req,res){
+
+}
+
+export default{
+    addBlog_post,readBlogBySlug,deleteBlog_post
+}
