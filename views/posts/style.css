@@ -134,12 +134,18 @@ aside li a:hover{
     gap: 2.5rem;
 }
 
-.posts div{
+.posts>div{
     width: 80%;
     padding: 1.5rem;
     border: 1px solid gray;
     border-radius: 1.5rem;
     box-shadow: 1px 1px 3px black;
+}
+
+.posts .buttons{
+    display:flex;
+    flex-direction:row;
+    gap:1.2rem;
 }
 
 .posts div button{

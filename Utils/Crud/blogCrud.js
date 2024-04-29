@@ -1,4 +1,5 @@
 import Blog from "../../models/blog.js";
+import User from "../../models/user.js";
 
 async function createBlog(title,author,category,content){
     const newIdentity={

@@ -71,10 +71,6 @@ async function updateUser(currentusername,currentpassword,email,username,passwor
 }
 
 async function addBlog(username,password,blogTitle,category,content){
-    const userIdentity = {
-        username:username,
-        password:password
-    }
     const blogIdentity={
         blogTitle:blogTitle,
         author:username,
@@ -82,13 +78,25 @@ async function addBlog(username,password,blogTitle,category,content){
         content:content
     }
     const user = await readOne(username,password);
-    const blog = await blogCrud.readOne(blogTitle,username);
     await User.updateOne(user,{$push:{blogs:blogIdentity}});
     return;
 }
 
+async function deleteBlog(username,password,blogTitle,category){
+    const blog = await blogCrud.readOne(blogTitle,username);
+    const blogIdentity={
+        blogTitle:blogTitle,
+        author:username,
+        category:category,
+        content:blog.content
+    }
+    const user = await readOne(username,password);
+    await User.updateOne(user,{$pull:{blogs:blogIdentity}});
+    return;
+}
+
 export default{
-    addUser,deleteUser,readOne,readAll,updateUser,addBlog
+    addUser,deleteUser,readOne,readAll,updateUser,addBlog,deleteBlog
 }
 
 

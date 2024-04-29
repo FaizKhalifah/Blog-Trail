@@ -34,18 +34,47 @@ async function showBlog(){
       blogAuthor.textContent=blog.author;
       let blogCategory = document.createElement('p');
       blogCategory.textContent=blog.category;
+
+      let buttons = document.createElement('div');
+      buttons.classList.add('buttons')
+
       let readButton = document.createElement('button');
       readButton.textContent="Read";
-      readButton.classList.add('read-more-button');
+      readButton.classList.add('button');
+      let editButton = document.createElement('button');
+      editButton.textContent="Edit";
+      editButton.classList.add('button');
+      let deleteButton = document.createElement('button');
+      deleteButton.textContent="delete";
+      deleteButton.classList.add('button')
 
       readButton.addEventListener('click',async function(){
         window.location.href = `/readBlog/${blog.blogTitle}-${blog.author}`;
       })
 
+      deleteButton.addEventListener('click',async function(){
+        const blogTitle = blog.blogTitle;
+        const author = blog.author;
+        const category = blog.category;
+        const res = await fetch('/deleteBlog',{
+          method:'POST',
+          body:JSON.stringify({
+              blogTitle,author,category
+          }),
+          headers: {'Content-Type': 'application/json'}
+      })
+      const data = await res.json();
+      console.log(data);
+      })
+
+      buttons.appendChild(readButton);
+      buttons.appendChild(editButton);
+      buttons.appendChild(deleteButton);
+
       blogDiv.appendChild(blogHeader);
       blogDiv.appendChild(blogAuthor);
       blogDiv.appendChild(blogCategory);
-      blogDiv.appendChild(readButton);
+      blogDiv.appendChild(buttons);
       posts.appendChild(blogDiv);
     })
   }
