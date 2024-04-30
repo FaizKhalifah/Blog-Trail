@@ -84,6 +84,7 @@ async function addBlog(username,password,blogTitle,category,content){
 
 async function deleteBlog(username,password,blogTitle,category){
     const blog = await blogCrud.readOne(blogTitle,username);
+    console.log(blog);
     const blogIdentity={
         blogTitle:blogTitle,
         author:username,

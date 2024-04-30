@@ -23,7 +23,7 @@ async function deleteBlog_post(req,res){
     const user = res.locals.user;
     const fetchedUser = await userCrud.readOne(user.username,user.password);
     const blog = await blogCrud.readOne(blogTitle,author);
-    await userCrud.deleteBlog(fetchedUser.username,fetchedUser.password,blogTitle,author,category);
+    await userCrud.deleteBlog(fetchedUser.username,fetchedUser.password,blogTitle,category);
     await blogCrud.deleteBlog(blogTitle,author);
     res.status(201).json({message:"Blog berhasil dihapus"});
 }
