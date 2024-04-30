@@ -48,10 +48,12 @@ async function showBlog(){
       deleteButton.textContent="delete";
       deleteButton.classList.add('button')
 
+      //event readButton
       readButton.addEventListener('click',async function(){
         window.location.href = `/readBlog/${blog.blogTitle}-${blog.author}`;
       })
 
+      //event delete Button
       deleteButton.addEventListener('click',async function(){
         const blogTitle = blog.blogTitle;
         const author = blog.author;
@@ -65,7 +67,13 @@ async function showBlog(){
       })
       const data = await res.json();
       console.log(data);
-      })
+      blogDiv.parentNode.removeChild(blogDiv);
+      const remainingBlogs = document.querySelectorAll(".posts > div");
+      if (remainingBlogs.length === 0) {
+        posts.textContent = "Belum ada blog yang dipublish";
+      }
+     
+    })
 
       buttons.appendChild(readButton);
       buttons.appendChild(editButton);
@@ -80,8 +88,9 @@ async function showBlog(){
   }
 }
 
-
-
+async function deleteFunction(){
+  
+}
 
 showBlog();
 
