@@ -28,6 +28,13 @@ async function deleteBlog_post(req,res){
     res.status(201).json({message:"Blog berhasil dihapus"});
 }
 
+async function editBlog_post(req,res){
+    const {slug}=req.params;
+    const [title,author]=slug.split('-');
+    const blog = await blogCrud.readOne(title,author);
+    res.render('../views/editBlog/editBlog.ejs', { blog });
+}
+
 export default{
-    addBlog_post,readBlogBySlug,deleteBlog_post
+    addBlog_post,readBlogBySlug,deleteBlog_post,editBlog_post
 }

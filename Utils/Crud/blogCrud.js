@@ -41,9 +41,14 @@ async function readAll(){
     return AllBlog;
 }
 
+async function editBlog(title,author,content){
+    const blog = await readOne(title,author);
+    await Blog.updateOne(blog,{$set:{content:content}});
+    return;
+}
 
 
 export default{
-    createBlog,deleteBlog,readOne,readById, readAll
+    createBlog,deleteBlog,readOne,readById, readAll,editBlog
 }
 

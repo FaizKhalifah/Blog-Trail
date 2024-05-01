@@ -84,7 +84,6 @@ async function addBlog(username,password,blogTitle,category,content){
 
 async function deleteBlog(username,password,blogTitle,category){
     const blog = await blogCrud.readOne(blogTitle,username);
-    console.log(blog);
     const blogIdentity={
         blogTitle:blogTitle,
         author:username,
@@ -96,8 +95,22 @@ async function deleteBlog(username,password,blogTitle,category){
     return;
 }
 
+async function editBlog(username,password,title,content){
+    const user = await readOne(username,password);
+    const updateDocument = {
+        $set: {
+            "blogs.$[elem].content": content
+        }
+      };
+      const options = {
+        arrayFilters: [{ "elem.blogTitle": title,"elem.author":username}]
+      };
+      await User.updateOne(user,updateDocument,options);
+      return
+}
+
 export default{
-    addUser,deleteUser,readOne,readAll,updateUser,addBlog,deleteBlog
+    addUser,deleteUser,readOne,readAll,updateUser,addBlog,deleteBlog,editBlog
 }
 
 
