@@ -53,6 +53,10 @@ async function showBlog(){
         window.location.href = `/readBlog/${blog.blogTitle}-${blog.author}`;
       })
 
+      editButton.addEventListener('click',async function(){
+        window.location.href=`/editBlog/${blog.blogTitle}-${blog.author}`;
+      })
+
       //event delete Button
       deleteButton.addEventListener('click',async function(){
         const blogTitle = blog.blogTitle;

@@ -9,12 +9,14 @@ const blogRouter = Router();
 blogRouter.post('/getBlog',authMiddleware.checkUser,fetchUtils.fetchBlog);
 blogRouter.post('/addBlog',blogController.addBlog_post);
 blogRouter.post('/deleteBlog',blogController.deleteBlog_post);
+blogRouter.post('/editBlog',blogController.editBlog_post);
 
 
 //get routes
 blogRouter.get('/readBlog/:slug',authMiddleware.requireAuth,blogController.readBlogBySlug);
 blogRouter.get('/newBlog',authMiddleware.requireAuth,(req,res)=>{
     res.render('newBlog/newBlog');
- })
+ });
+blogRouter.get('/editBlog/:slug',authMiddleware.requireAuth,blogController.editBlog_post);
  
 export default blogRouter;
