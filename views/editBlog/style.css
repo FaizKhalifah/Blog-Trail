@@ -75,24 +75,19 @@ textarea{
 }
 
 
-input[type=text]{
-    width: 90%;
-    padding: 0.5rem 2rem;
-    border: none;
+#blogTitle{
+    width: 70%;
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
     border-bottom: 2px solid gray;
-    font-size: 2rem;
 }
 
-input[type=text]:focus{
- outline: none;
- border-color: #FFC86A;
+#category{
+    color:gray;
+    font-size:1.5rem;
+    padding: 0.5rem 1rem;
 }
 
-select{
-    padding: 1rem 2rem;
-    border: 1px solid rgb(180, 179, 179);
-    background-color: white;
-}
 
 button{
     padding: 1rem 2.5rem;
