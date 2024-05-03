@@ -22,10 +22,10 @@ async function deleteBlog_post(req,res){
     const {blogTitle,author,category}=req.body;
     const user = res.locals.user;
     const fetchedUser = await userCrud.readOne(user.username,user.password);
-    const blog = await blogCrud.readOne(blogTitle,author);
     await userCrud.deleteBlog(fetchedUser.username,fetchedUser.password,blogTitle,category);
     await blogCrud.deleteBlog(blogTitle,author);
     res.status(201).json({message:"Blog berhasil dihapus"});
+    return;
 }
 
 async function editBlogBySlug(req,res){
@@ -37,11 +37,13 @@ async function editBlogBySlug(req,res){
 
 async function editBlog_post(req,res){
     const {blogTitle,content}=req.body;
+    console.log(blogTitle);
     const user = res.locals.user;
     const fetchedUser = await userCrud.readOne(user.username,user.password);
     await blogCrud.editBlog(blogTitle,fetchedUser.username,content);
     await userCrud.editBlog(fetchedUser.username,fetchedUser.password,blogTitle,content);
     res.status(201).json({message:"Blog berhasil diedit"});
+    return;
 }
 
 export default{

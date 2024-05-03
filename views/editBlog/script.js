@@ -1,17 +1,13 @@
-const form = document.querySelector("form");
-
-   
-
+const form = document.querySelector("form");   
 form.addEventListener('submit',async(e)=>{
     e.preventDefault();
     const content = form.content.value;
-    const blogTitle=document.querySelector("#blogTitle");
-    const category = document.querySelector("#category");
-    const judul=blogTitle.innerText;
+    const judul=document.querySelector("#blogTitle");
+    const blogTitle=judul.innerText;
     try{
-        const res = await fetch('/editBlog',{
+        const res = await fetch('/updateBlog',{
             method:'POST',
-            body:JSON.stringify({judul,content
+            body:JSON.stringify({blogTitle,content
             }),
             headers: {'Content-Type': 'application/json'}
         });
