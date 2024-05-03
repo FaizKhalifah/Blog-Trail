@@ -35,6 +35,15 @@ async function editBlogBySlug(req,res){
     res.render('../views/editBlog/editBlog.ejs', { blog });
 }
 
+async function editBlog_post(req,res){
+    const {blogTitle,content}=req.body;
+    const user = res.locals.user;
+    const fetchedUser = await userCrud.readOne(user.username,user.password);
+    await blogCrud.editBlog(blogTitle,fetchedUser.username,content);
+    await userCrud.editBlog(fetchedUser.username,fetchedUser.password,blogTitle,content);
+    res.status(201).json({message:"Blog berhasil diedit"});
+}
+
 export default{
-    addBlog_post,readBlogBySlug,deleteBlog_post,editBlogBySlug
+    addBlog_post,readBlogBySlug,deleteBlog_post,editBlogBySlug,editBlog_post
 }

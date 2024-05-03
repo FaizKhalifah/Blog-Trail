@@ -9,7 +9,7 @@ const blogRouter = Router();
 blogRouter.post('/getBlog',authMiddleware.checkUser,fetchUtils.fetchBlog);
 blogRouter.post('/addBlog',blogController.addBlog_post);
 blogRouter.post('/deleteBlog',blogController.deleteBlog_post);
-// blogRouter.post('/editBlog',blogController.editBlog_post);
+blogRouter.post('/editBlog',blogController.editBlog_post);
 
 
 //get routes

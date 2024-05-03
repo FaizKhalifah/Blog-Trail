@@ -22,19 +22,12 @@
     </header>
     <main>
         <form action="">
-            <label for="blogTitle">Title</label>
-            <input type="text" name="blogTitle" id="blogTitle" value="<%= blog.title %>"><br>
-            <label for="genre">Genre</label>
-            <select name="genre" id="genre">
-                <option value="technology" <% if (blog.category === 'Information and technology') { %> selected <% } %>>Information and technology</option>
-                <option value="education" <% if (blog.category === 'education') { %> selected <% } %>>Education</option>
-                <option value="health" <% if (blog.category === 'health') { %> selected <% } %>>Health</option>
-                <option value="sport" <% if (blog.category === 'sport') { %> selected <% } %>>Sport</option>
-                <option value="lifestyle" <% if (blog.category === 'lifestyle') { %> selected <% } %>>lifestyle</option>
-            </select><br>
+            <label for="blogTitle" id="blogTitle"><%= blog.title %></label>
+            <label for="category" id="category"><%= blog.category %></label>
             <textarea name="content" id="content" cols="100" rows="50"><%=blog.content%></textarea><br>
             <button>Edit</button>
         </form>
+       
     </main>
 </body>
 <script src="script.js"></script>
