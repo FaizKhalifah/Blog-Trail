@@ -12,6 +12,7 @@ staticRouter.use('/feedbacks',staticUtils.staticFeedbacks);
 staticRouter.use('/readBlog',staticUtils.staticReadBlog);
 staticRouter.use('/connections',staticUtils.staticConnections);
 staticRouter.use('/editBlog',staticUtils.staticEditBlog);
+staticRouter.use('/writerHub',staticUtils.staticWriterHub);
 
 
 export default staticRouter;

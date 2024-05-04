@@ -11,7 +11,9 @@ async function addUser(email,username,password,interest){
         username:username,
         password:hashedpassword,
         interest:interest,
-        blogs:[]
+        blogs:[],
+        connections:[],
+        contributions:[]
     };
     const newUser = new User(newIdentity);
     await newUser.save();

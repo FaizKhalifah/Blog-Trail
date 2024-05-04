@@ -6,7 +6,8 @@ import staticRouter from "./routes/staticRoute.js";
 import authRouter from "./routes/authRoute.js";
 import userRouter from "./routes/userRoute.js";
 import blogRouter from "./routes/blogRoute.js";
-import authMiddleware from "./middlewares/authMiddleware.js"
+import authMiddleware from "./middlewares/authMiddleware.js";
+import navRouter from "./routes/navRoute.js";
 
 
 const currentDirectory = process.cwd();
@@ -30,6 +31,7 @@ app.use(staticRouter);
 app.use(authRouter);
 app.use(userRouter);
 app.use(blogRouter);
+app.use(navRouter);
 
 
 
