@@ -26,12 +26,16 @@ async function register_get(req, res){
   
   async function register_post (req, res) {
     const { email,username, password,interest} = req.body;
-
+    
     try {
-      const user = await userCrud.addUser(email,username, password,interest);
+      const user = await userCrud.addUser(email,username,password,interest);
+      console.log(user);
       const fetchedUser = await userCrud.readOne(username,password);
+      console.log(fetchedUser);
+      const token = createToken(fetchedUser.id);
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
       res.status(201).json({ user: fetchedUser.id });
+
     }
     catch(err) {
       console.log(err);
