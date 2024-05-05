@@ -16,4 +16,10 @@ async function fetchBlog(req,res){
     return;
 }
 
-export default {fetchUser,fetchBlog}
+async function fetchAllBlog(req,res){
+    const blogs = await blogCrud.readAll();
+    res.json({blogs});
+    return;
+}
+
+export default {fetchUser,fetchBlog,fetchAllBlog}
