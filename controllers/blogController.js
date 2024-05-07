@@ -18,6 +18,13 @@ async function readBlogBySlug(req,res){
     res.render('../views/readBlog/readBlog.ejs', { blog });
 }
 
+async function readOtherBlogBySlug(req,res){
+    const {slug}=req.params;
+    const [title,author]=slug.split('-');
+    const blog = await blogCrud.readOne(title,author);
+    res.render('../views/readOtherBlog/readBlog.ejs', { blog });
+}
+
 async function deleteBlog_post(req,res){
     const {blogTitle,author,category}=req.body;
     const user = res.locals.user;
@@ -47,5 +54,5 @@ async function editBlog_post(req,res){
 }
 
 export default{
-    addBlog_post,readBlogBySlug,deleteBlog_post,editBlogBySlug,editBlog_post
+    addBlog_post,readBlogBySlug,deleteBlog_post,editBlogBySlug,editBlog_post,readOtherBlogBySlug
 }

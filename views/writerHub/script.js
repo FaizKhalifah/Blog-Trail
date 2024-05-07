@@ -28,15 +28,23 @@ async function showBlog(){
         blogs.forEach(blog=>{
             let blogDiv = document.createElement('div');
             let blogHeader = document.createElement('h2');
-            blogHeader.textContent=blog.blogTitle;
+            blogHeader.textContent=blog.title;
             let blogAuthor = document.createElement('p');
             blogAuthor.textContent=blog.author;
             let blogCategory = document.createElement('p');
             blogCategory.textContent=blog.category;
+            let readButton = document.createElement('button');
+            readButton.textContent="Read";
+            readButton.classList.add('button');
+            readButton.addEventListener('click',async function(){
+              window.location.href = `/readOtherBlog/${blog.title}-${blog.author}`;
+            })
+            
             blogDiv.appendChild(blogHeader);
             blogDiv.appendChild(blogAuthor);
             blogDiv.appendChild(blogCategory);
-            blogSection.appendChild(blogDiv);
+            blogDiv.appendChild(readButton);
+            blogSection.appendChild(blogDiv);           
         })
     }
 }

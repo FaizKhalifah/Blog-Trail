@@ -21,6 +21,10 @@ staticFeedbacks.use(express.static('views/feedbacks'));
 const staticReadBlog = express();
 staticReadBlog.use(express.static('views/readBlog'));
 
+
+const staticReadOtherBlog = express();
+staticReadOtherBlog.use(express.static('views/readOtherBlog'));
+
 const staticConnections = express();
 staticConnections.use(express.static('views/connections'));
 
@@ -32,7 +36,7 @@ staticWriterHub.use(express.static('views/writerHub'));
 
 export default{
     staticRegister,staticDashboard,staticLogin,staticPosts,staticNewBlog,staticFeedbacks,staticReadBlog,
-    staticConnections,staticEditBlog,staticWriterHub
+    staticConnections,staticEditBlog,staticWriterHub,staticReadOtherBlog
 }
 
 

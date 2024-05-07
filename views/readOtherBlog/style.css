@@ -4,6 +4,7 @@
     margin: 0px;
     padding: 0px;
     font-family: 'poppins',sans-serif;
+    box-sizing: border-box;
 }
 
 body{
@@ -58,43 +59,52 @@ nav a:hover{
 main{
     width: 100%;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
-    align-items: stretch;
-}
-
-.blogSection{
-    margin:1.5rem;
-    width: 80%;
-    display:flex;
-    flex-direction: column;
     align-items: center;
+}
+
+.title{
+    padding: 1.5rem;
+    width: 80%;
+    text-align: center;
+}
+
+.content{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    padding:1rem;
-    gap:2rem;
+    gap: 2rem;
+    text-align: justify;
+    padding: 2rem;
 }
 
-.blogSection div{
-    width: 60%;
-    padding:2rem;
-    border:1px solid black;
-    border-radius:2rem;
-    box-shadow:2px 2px 3px black;
+.contentHeader{
+    color: gray;
 }
 
-.blogSection button{
-    margin-top: 1.3rem;
-    border-radius: 1rem;
-    padding: 0.5rem 1.5rem;
+.buttonContainer{
+    width: 70%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.buttonContainer a{
+    border: 1px solid #264653;
+    text-decoration: none;
     color: white;
-    border: 1px solid white;
+    border-radius: 1.5rem;
+    padding: 1rem 2rem;
     background-color: #264653;
     transition: 0.3s;
-    cursor: pointer;
 }
 
-.blogSection button:hover{
-    background-color: white;
-    border-color: #264653;
+.buttonContainer a:hover{
+    border: 1px solid #264653;
     color: #264653;
+    background-color: white;
 }
