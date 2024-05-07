@@ -36,6 +36,9 @@ async function showBlog(){
             let readButton = document.createElement('button');
             readButton.textContent="Read";
             readButton.classList.add('button');
+            readButton.addEventListener('click',async function(){
+              window.location.href = `/readOtherBlog/${blog.title}-${blog.author}`;
+            })
             
             blogDiv.appendChild(blogHeader);
             blogDiv.appendChild(blogAuthor);

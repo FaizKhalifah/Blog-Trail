@@ -15,6 +15,7 @@ blogRouter.post('/updateBlog',blogController.editBlog_post);
 
 //get routes
 blogRouter.get('/readBlog/:slug',authMiddleware.requireAuth,blogController.readBlogBySlug);
+blogRouter.get('/readOtherBlog/:slug',authMiddleware.requireAuth,blogController.readOtherBlogBySlug);
 blogRouter.get('/newBlog',authMiddleware.requireAuth,(req,res)=>{
     res.render('newBlog/newBlog');
  });
