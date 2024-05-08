@@ -34,9 +34,12 @@ staticEditBlog.use(express.static('views/editBlog'));
 const staticWriterHub = express();
 staticWriterHub.use(express.static('views/writerHub'));
 
+const staticResources=express();
+staticResources.use(express.static('views/resources'))
+
 export default{
     staticRegister,staticDashboard,staticLogin,staticPosts,staticNewBlog,staticFeedbacks,staticReadBlog,
-    staticConnections,staticEditBlog,staticWriterHub,staticReadOtherBlog
+    staticConnections,staticEditBlog,staticWriterHub,staticReadOtherBlog,staticResources
 }
 
 

@@ -14,6 +14,7 @@ staticRouter.use('/readOtherBlog',staticUtils.staticReadOtherBlog);
 staticRouter.use('/connections',staticUtils.staticConnections);
 staticRouter.use('/editBlog',staticUtils.staticEditBlog);
 staticRouter.use('/writerHub',staticUtils.staticWriterHub);
+staticRouter.use('/resources',staticUtils.staticResources);
 
 
 export default staticRouter;
