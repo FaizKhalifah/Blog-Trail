@@ -7,4 +7,7 @@ navRouter.get('/writerHub',authMiddleware.requireAuth,(req,res)=>{
     res.render('writerHub/writerHub');
 })
 
+navRouter.get('/resources',authMiddleware.requireAuth,(req,res)=>{
+    res.render('resources/resources');
+})
 export default navRouter;
