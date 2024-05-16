@@ -8,6 +8,14 @@ async function fetchUser(req,res){
     return;
 }
 
+async function fetchConnections(req,res){
+    const user = res.locals.user;
+    const fetchedUser = await userCrud.readOne(user.username,user.password);
+    const userConnections = fetchedUser.connections;
+    res.json({userConnections});
+    return;
+}
+
 async function fetchBlog(req,res){
     const user = res.locals.user;
     const fetchedUser = await userCrud.readOne(user.username,user.password);
@@ -22,4 +30,4 @@ async function fetchAllBlog(req,res){
     return;
 }
 
-export default {fetchUser,fetchBlog,fetchAllBlog}
+export default {fetchUser,fetchBlog,fetchAllBlog,fetchConnections}
